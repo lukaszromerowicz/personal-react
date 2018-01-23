@@ -17,7 +17,15 @@ main{
   overflow: hidden;
   display: grid;
   grid-template-columns: 5% 45% 45% 5%;
-  grid-template-rows: 30% 60%;
+  grid-template-rows: 30% 70%;
+
+  @media screen and (max-width: $break-small) {
+    grid-template-rows: 20% 80%;
+  }
+
+  @media screen and (min-width: $break-small) and (max-width: $break-medium){
+    grid-template-rows: 20% 80%;
+  }
 }
 
 header {
@@ -43,7 +51,8 @@ header {
     font-size: 4em;
     width: 200px;
     margin-top: 15%;
-    justify-self: start;
+    margin-right: 100px;
+    justify-self: end;
   }
 }
 
@@ -63,7 +72,7 @@ nav{
   @media screen and (min-width: $break-small) and (max-width: $break-medium) {
     height: 100px;
     justify-self: start;
-    margin-left: 10%;
+    margin-left: 70px;
   }
 
   ul{
