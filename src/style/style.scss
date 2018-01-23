@@ -45,7 +45,6 @@ header {
     margin-top: 15%;
     justify-self: start;
   }
-  
 }
 
 nav{
@@ -93,25 +92,23 @@ nav{
       @media screen and (min-width: $break-small) and (max-width: $break-medium) {
         font-size: 3.2em;
       }
-
-      
     }
 
-  a {
-    text-decoration: none;
-    color: black;
-  }
+    a {
+      text-decoration: none;
+      color: black;
 
-  a:hover {
-    color: $primary-color;
-  }
+      &:hover {
+        color: $primary-color;
+      }
+    }
   }
 }
 
-  .element{
-  position: absolute;
-  width: 70px;
-  height: 70px;
+.element{
+position: absolute;
+width: 70px;
+height: 70px;
 
   .top-left {
     position: absolute;
@@ -138,34 +135,33 @@ nav{
     height: 24.5px;
     transform: rotate(-45deg) skew(23.5deg, 23.5deg);
   }
+}
 
+@mixin keyframe ($animation_name){
+  @-webkit-keyframes #{$animation_name} {
+      @content
   }
-
-  @mixin keyframe ($animation_name){
-    @-webkit-keyframes #{$animation_name} {
-        @content
-    }
-    @-moz-keyframes #{$animation_name} {
-        @content
-      }
-
-    @-o-keyframes #{$animation_name} {
-        @content
+  @-moz-keyframes #{$animation_name} {
+      @content
     }
 
-    @keyframes #{$animation_name} {
-        @content
-    }
+  @-o-keyframes #{$animation_name} {
+      @content
   }
 
-  @include keyframe(backgroundStandBy) {
-  0% {
-    transform: translate(0px, 20px)
+  @keyframes #{$animation_name} {
+      @content
   }
-  50% {
-    transform: translate(0px, -5px)
-  }
-  100% {
-    transform: translate(0px, 20px)
-  }
-  }
+}
+
+@include keyframe(backgroundStandBy) {
+0% {
+  transform: translate(0px, 20px)
+}
+50% {
+  transform: translate(0px, -5px)
+}
+100% {
+  transform: translate(0px, 20px)
+}
+}
