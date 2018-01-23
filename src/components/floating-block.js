@@ -4,8 +4,8 @@ class FloatingBlock extends Component {
   constructor(props){
     super(props)
     this.state = {
-      x: Math.floor(Math.random() * (window.outerWidth-100)),
-      y: Math.floor(Math.random() * (window.outerHeight-100)),
+      x: Math.floor(Math.random() * (window.screen.width-100)),
+      y: Math.floor(Math.random() * (window.screen.height-100)),
       offsetX: 0,
       offsetY: 0,
       colours: props.colours
