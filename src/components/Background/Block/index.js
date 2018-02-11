@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class FloatingBlock extends Component {
+class Block extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -41,7 +41,7 @@ class FloatingBlock extends Component {
         break
     }
 
-    this.setState({blockPosition})
+    this.setState(blockPosition)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -63,4 +63,4 @@ class FloatingBlock extends Component {
   }
 }
 
-export default FloatingBlock
+export default Block
