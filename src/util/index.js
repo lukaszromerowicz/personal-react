@@ -1,5 +1,5 @@
-import SubPub from './SubPub'
+import PubSub from './PubSub'
 
 export {
-  SubPub
+  PubSub
 }
