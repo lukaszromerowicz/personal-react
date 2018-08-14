@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CompressionPlugin = require("compression-webpack-plugin")
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
 
 let config = {
   entry: ["babel-polyfill", "./src/index.js"],
