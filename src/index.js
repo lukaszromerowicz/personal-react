@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { render } from 'react-dom'
-import Main from './components/Main'
-import './style/style.scss' 
+import Background from './components/Background'
+import './style/style.scss'
 
 const App = () => {
   return (
-    <Main>
+    <main>
+      <Background />
       <header>Łukasz Romerowicz</header>
       <nav>
         <ul>
@@ -14,8 +15,8 @@ const App = () => {
           <li><a href="mailto:lukaszromerowicz@gmail.com">E-mail</a></li>
         </ul>
       </nav>
-    </Main>
+    </main>
   )
 }
 
-render(<App/>, document.getElementById('app'))
+render(<App />, document.getElementById('app'))

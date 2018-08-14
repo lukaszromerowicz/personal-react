@@ -114,10 +114,64 @@ nav{
   }
 }
 
+$orange-top-left: #FFC107;
+$orange-top-right: #FFECB3;
+$orange-bottom: #FFA000;
+
+$green-top-left: #009688;
+$green-top-right: #B2DFDB;
+$green-bottom: #00796B;
+
+$violet-top-left: #7E57C2;
+$violet-top-right: #B39DDB;
+$violet-bottom: #4527A0;
+
 .element{
 position: absolute;
 width: 70px;
 height: 70px;
+
+  &.green {
+    .top-left {
+      background-color: $green-top-left;
+    }
+
+    .top-right { 
+      background-color: $green-top-right;
+    }
+
+    .bottom {
+      background-color: $green-bottom;
+    }
+  }
+  
+  &.violet {
+    .top-left {
+      background-color: $violet-top-left;
+    }
+
+    .top-right { 
+      background-color: $violet-top-right;
+    }
+
+    .bottom {
+      background-color: $violet-bottom;
+    }
+  }
+
+  &.orange {
+    .top-left {
+      background-color: $orange-top-left;
+    }
+
+    .top-right { 
+      background-color: $orange-top-right;
+    }
+
+    .bottom {
+      background-color: $orange-bottom;
+    }
+  }
 
   .top-left {
     position: absolute;
@@ -164,13 +218,13 @@ height: 70px;
 }
 
 @include keyframe(backgroundStandBy) {
-0% {
-  transform: translate(0px, 20px)
-}
-50% {
-  transform: translate(0px, -5px)
-}
-100% {
-  transform: translate(0px, 20px)
-}
+  0% {
+    transform: translate(0px, 20px)
+  }
+  50% {
+    transform: translate(0px, -5px)
+  }
+  100% {
+    transform: translate(0px, 20px)
+  }
 }
