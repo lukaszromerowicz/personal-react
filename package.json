@@ -1,7 +1,6 @@
 {
-  "name": "react-webpack-babel",
+  "name": "personal-react",
   "version": "1.0.0",
-  "description": "React app boilerplate",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -9,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/lromerowicz/react-webpack-babel.git"
+    "url": "git+ssh://git@github.com:lukaszromerowicz/personal-react.git"
   },
   "author": "Lukasz Romerowicz",
-  "homepage": "https://gitlab.com/lromerowicz/react-webpack-babel#README",
+  "homepage": "https://github.com/lukaszromerowicz/personal-react",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

@@ -13,7 +13,6 @@ export default class {
     this.subscribers[this.subscriberKey] = subscriber
     this.topics[topic].push(this.subscriberKey)
 
-    console.log('hi im finished')
     return this.subscriberKey++
   }
 
