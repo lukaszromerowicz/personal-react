@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { SubPub } from '../../util'
+import { PubSub } from '../../util'
+import debounce from 'lodash.debounce'
 
 export default (WrappedComponent) => {
   return class extends Component {
     constructor(props) {
       super(props)
-      this.eventBus = new SubPub()
+      this.eventBus = new PubSub()
+      this.eventBus.publish = debounce(this.eventBus.publish, 10)
     }
 
     componentDidMount() {
