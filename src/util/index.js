@@ -1,5 +1,7 @@
 import PubSub from './PubSub'
+import importAll from './importAll'
 
 export {
-  PubSub
+  PubSub,
+  importAll
 }

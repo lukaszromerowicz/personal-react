@@ -1,4 +1,10 @@
 {
-  "presets" : ["env", "react"],
-  "plugins": ["babel-plugin-transform-class-properties"]
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    "babel-plugin-transform-class-properties",
+    "syntax-dynamic-import"
+  ]
 }
