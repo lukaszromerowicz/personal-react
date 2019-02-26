@@ -24,6 +24,21 @@ let config = {
 					"css-loader",
 					"sass-loader"
 				]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      },
+      {
+        test: /\.(md)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            }
+          }
+        ]
       }
     ]
   },

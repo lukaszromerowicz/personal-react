@@ -1,0 +1,36 @@
+$font-size-extra-large: 2.5em;
+$font-size-large: 1.5em;
+$font-size-medium: 1.15em;
+$font-size-small: 1em;
+
+body {
+    font: 16px / 2 Helvetica;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+  }
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px 0;
+    line-height: 1em;
+    font-size: $font-size-extra-large;
+  }
+  
+  h2 {
+    margin: 0;
+    padding: 0 0 20px 0;
+    font-size: $font-size-large;
+    line-height: 1.5em;
+  }
+  
+  p {
+    margin: 0;
+    padding: 0 0 20px 0;
+    line-height: 1.65em;
+    font-size: $font-size-small;
+  
+    @media #{$tablet, $desktop} {
+      font-size: $font-size-medium;
+      line-height: 1.75em;
+    }
+  }
