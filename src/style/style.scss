@@ -1,5 +1,6 @@
 @import 'devices.scss';
 @import 'text.scss';
+@import 'loader.css';
 
 $primary-color: #4a57c3;
 
@@ -155,7 +156,7 @@ $violet-bottom: #4527A0;
   z-index: 1;
   display: grid;
   grid-template-columns: 5% 90% 5%;
-  grid-template-rows: 50px auto;
+  grid-template-rows: 50px auto 50px;
 
   @media #{$desktop} {
     grid-column-gap: 20px;
@@ -186,6 +187,8 @@ $violet-bottom: #4527A0;
     @media #{$desktop, $tablet} {
       grid-column-start: 2;
       grid-column-end: 3;
+      max-width: 700px;
+      justify-self: center;
     }
   }
 

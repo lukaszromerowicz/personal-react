@@ -1,15 +1,16 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react'
+import React, { useState, useEffect, lazy } from 'react'
 import { Link } from 'react-router-dom'
 import fm from 'front-matter'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import Loader from '../Loader'
 import { importAll } from '../../util'
 
 dayjs.extend(customParseFormat)
 const postsFiles = importAll(require.context('../../posts', false, /\.md$/))
 
 const PostThumbnail = ({title, summary, slug, thumbnailImage }) => {
-    const image = lazy(() => import('../../posts' + thumnailImage))
+    lazy(() => import('../../posts' + thumnailImage))
 
     return <section className='post-thumbnail'>
         <Link to={`/blog/${slug}`}>
@@ -22,6 +23,7 @@ const PostThumbnail = ({title, summary, slug, thumbnailImage }) => {
 
 const PostsList = () => {
     const [postsMetadata, setPostsMetadata] = useState(undefined)
+    const [error, setError] = useState(undefined)
 
     const fetchPosts = async () => {
         try {
@@ -30,7 +32,7 @@ const PostsList = () => {
                 .sort((a,b) => dayjs(b.date, 'DD/MM/YYYY').diff(dayjs(a.date, 'DD/MM/YYYY')))
             setPostsMetadata(postsMetadata)
         } catch (error) {
-            console.log(error)
+            setError(error)
         }
     }
 
@@ -39,7 +41,9 @@ const PostsList = () => {
     }, [])
 
     return <div className='content-container'>
-            {postsMetadata && postsMetadata.map(post => <PostThumbnail key={post.date} {...post} />)}
+            {error && <h2>Ooops. There was an error when loading the posts. Please try again.</h2>}
+            {!error && !postsMetadata && <Loader/>}
+            {!error && postsMetadata && postsMetadata.map(post => <PostThumbnail key={post.date} {...post} />)}
         </div>
 }
 

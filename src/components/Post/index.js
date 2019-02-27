@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
+import Loader from '../Loader'
 
 const Post = ({ match }) => {
 	const [postMarkdown, setPostMarkdown] = useState(undefined)
+	const [error, setError] = useState(undefined)
 
 	const fetchPost = async () => {
 		try {
@@ -11,7 +13,7 @@ const Post = ({ match }) => {
 			const markdownWithoutFrontmatter = markdown.replace(/\---((\n|.)*?)\---/, '')
 			setPostMarkdown(markdownWithoutFrontmatter)
 		} catch (error) {
-			console.log(error)
+			setError(error)
 		}
 	}
 
@@ -21,12 +23,13 @@ const Post = ({ match }) => {
 
 
 	return <div className='content-container'>
-			{postMarkdown
-				? <ReactMarkdown
-					source={postMarkdown}
-				/>
-				: <div>Loading...</div>}
-		</div>
+		{error && <h2>Ooops. There was an error when loading the post. Please try again.</h2>}
+		{!error && !postMarkdown && <Loader/>}
+		{!error && postMarkdown &&
+			<ReactMarkdown
+				source={postMarkdown}
+			/>}
+	</div>
 }
 
 export default Post
