@@ -41,8 +41,8 @@ const App = ({ showBlog }) => {
     >
       <Background />
       <div className='header-container'>
-        <MediaQuery query="only screen and (max-width: 768px)">
-          <Header pose={showBlog ? 'small' : 'large'} transform='scale(0.9) skewY(-20deg)' headerSpacing='10rem'>Łukasz Romerowicz</Header>
+        <MediaQuery query="only screen and (max-width: 767px)">
+          <Header pose={showBlog ? 'small' : 'large'} transform='scale(0.9) skewY(-20deg)' headerSpacing='8.75rem'>Łukasz Romerowicz</Header>
         </MediaQuery>
         <MediaQuery query="only screen and (min-width: 768px) and (max-width: 1024px)">
           <Header pose={showBlog ? 'small' : 'large'} transform='scale(0.5) skewY(-20deg)' headerSpacing='25rem'>Łukasz Romerowicz</Header>

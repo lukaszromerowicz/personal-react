@@ -50,7 +50,7 @@ header {
   position: absolute;
   font-weight: bold;
   line-height: 1em;
-  font-size: 2em;
+  font-size: 1.75em;
   width: 6.25rem;
   justify-self: start;
   margin: 20% 0 0 0;
@@ -76,7 +76,7 @@ nav {
   grid-row-start:2;
   display: flex;
   position: relative;
-  margin: 0 0 0 2rem;
+  margin: 0 0 0 1.8rem;
 
   @media #{$desktop, $tablet} {
     justify-self: initial;
@@ -109,7 +109,7 @@ nav {
       font-weight: bold;
       padding-top: 10%;
       padding-bottom: 0%;
-      font-size: 1.75em;
+      font-size: 1.5em;
       line-height: 1.25em;
       display: list-item;
       animation: showLink .3s ease-in-out;

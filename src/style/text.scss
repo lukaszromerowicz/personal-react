@@ -42,7 +42,7 @@ p {
   line-height: 1.65em;
   font-size: $font-size-small;
 
-  @media #{$tablet, $desktop} {
+  @media #{$desktop} {
 		font-size: $font-size-medium;
 		line-height: 1.75em;
   }
