@@ -1,17 +1,13 @@
 $font-size-extra-large: 2.5em;
 $font-size-large: 1.5em;
-$font-size-medium: 1.15em;
-$font-size-small: 1em;
-
-$font-size-extra-large-mobile: 1.75em;
-$font-size-large-mobile: 1.25em;
-$font-size-medium-mobile: 1em;
-$font-size-small-mobile: .75em;
+$font-size-medium: 1.25em;
+$font-size-small: 1.125em;
 
 body {
   font: 16px / 2 Helvetica;
   color: black;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
 }
 
 h1 {
@@ -19,10 +15,6 @@ h1 {
   padding: 0 0 20px 0;
   line-height: 1em;
   font-size: $font-size-extra-large;
-
-  @media #{$mobile} {
-  	font-size: $font-size-extra-large-mobile;
-  }
 }
   
 h2 {
@@ -30,10 +22,13 @@ h2 {
   padding: 0 0 20px 0;
   font-size: $font-size-large;
   line-height: 1.5em;
+}
 
-  @media #{$mobile} {
-		font-size: $font-size-large-mobile;
-	}
+h3 {
+  margin: 0;
+  padding: 0 0 20px 0;
+  font-size: $font-size-medium;
+  line-height: 1.6em;
 }
 
 p {
@@ -41,9 +36,4 @@ p {
   padding: 0 0 20px 0;
   line-height: 1.65em;
   font-size: $font-size-small;
-
-  @media #{$desktop} {
-		font-size: $font-size-medium;
-		line-height: 1.75em;
-  }
 }
