@@ -3,9 +3,15 @@ import React, { Component, createRef } from 'react'
 class Block extends Component {
   constructor(props) {
     super(props)
+    const windowWidth = window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth
+    const windowHeight = window.innerHeight
+      || document.documentElement.clientHeight
+      || document.body.clientHeight
     this.state = {
-      x: Math.floor(Math.random() * (window.screen.width - 100)),
-      y: Math.floor(Math.random() * (window.screen.height - 100)),
+      x: Math.floor(Math.random() * (windowWidth - 100)),
+      y: Math.floor(Math.random() * (windowHeight - 100)),
       colour: ['green', 'violet', 'orange'][Math.floor(Math.random() * (3))],
       isTouchDevice: 'ontouchstart' in document.documentElement
     }
