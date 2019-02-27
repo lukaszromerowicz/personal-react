@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import App from './components/App'
@@ -11,6 +11,9 @@ const Root = () => (
       <Route path='/blog' render={() => <App showBlog={true} />} />
     </Switch>
   </Router>
-  )
+)
 
-render(<Root />, document.getElementById('app'))
+const areEqual = (prevProps, nextProps) => true
+const MemoizedRoot = memo(Root, areEqual)
+
+render(<MemoizedRoot />, document.getElementById('app'))

@@ -30,7 +30,7 @@ let config = {
         loader: 'svg-inline-loader'
       },
       {
-        test: /\.(md)$/,
+        test: /\.(md|png)$/,
         use: [
           {
             loader: 'file-loader',

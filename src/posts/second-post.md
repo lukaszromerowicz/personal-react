@@ -1,6 +1,6 @@
 ---
 title: Esset quae donec nodis aspera movit
-slug: first-post
+slug: second-post
 summary: Lorem markdownum ferebat sis tibi, te orabam pontus, hac optet in non acui agmen alta circa. Dabat ipso missum tendens Ampycides enim dixerat niveum. Non *non* tamen, ora verba pietatis inde inque **generantia** ense naias, adhuc, scit cura.
 date: 20/01/2019
 thumbnailImage: ./first-post.png

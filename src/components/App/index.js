@@ -2,19 +2,20 @@ import React from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import { Link } from 'react-router-dom'
 import Background from '../Background'
+import MediaQuery from 'react-responsive'
 import menuIcon from '../../style/hamburger.svg'
 import Blog from '../Blog'
 
 const Header = posed.header({
   small: { 
-		'transform': 'scale(0.5) skewY(-20deg)',
+		'transform': ({transform}) => transform,
 		'top': '0em',
-		'left': '0em'
+		'left': 'calc(0% - 0rem)'
   },
   large: { 
 		'transform': 'scale(1) skewY(-20deg)',
 		'top': '2em',
-		'left': '0.5em'
+		'left': ({headerSpacing}) => `calc(100% - ${headerSpacing})`
   }
 })
 
@@ -40,7 +41,15 @@ const App = ({ showBlog }) => {
     >
       <Background />
       <div className='header-container'>
-        <Header pose={showBlog ? 'small' : 'large'}>Łukasz Romerowicz</Header>
+        <MediaQuery query="only screen and (max-width: 768px)">
+          <Header pose={showBlog ? 'small' : 'large'} transform='scale(0.9) skewY(-20deg)' headerSpacing='10rem'>Łukasz Romerowicz</Header>
+        </MediaQuery>
+        <MediaQuery query="only screen and (min-width: 768px) and (max-width: 1024px)">
+          <Header pose={showBlog ? 'small' : 'large'} transform='scale(0.5) skewY(-20deg)' headerSpacing='25rem'>Łukasz Romerowicz</Header>
+        </MediaQuery>
+        <MediaQuery query="only screen and (min-width: 1025px)">
+          <Header pose={showBlog ? 'small' : 'large'} transform='scale(0.5) skewY(-20deg)' headerSpacing='32.5rem'>Łukasz Romerowicz</Header>
+        </MediaQuery>
       </div>
       <nav>
         <Link 
@@ -49,8 +58,8 @@ const App = ({ showBlog }) => {
           dangerouslySetInnerHTML={{ __html: menuIcon }}
         />
         <PoseGroup>
-          {!showBlog && [
-            <Ul pose={'test'} key='ultest'>
+          {!showBlog && 
+            [<Ul key='ul'>
               <li><a href="https://uk.linkedin.com/in/łukasz-romerowicz-44212a10a">LinkedIn</a></li>
               <li><a href="https://github.com/lukaszromerowicz">GitHub</a></li>
               <li><a href="mailto:lukaszromerowicz@gmail.com">E-mail</a></li>

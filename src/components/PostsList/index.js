@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense, lazy } from 'react'
 import { Link } from 'react-router-dom'
 import fm from 'front-matter'
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { importAll } from '../../util'
 
+dayjs.extend(customParseFormat)
 const postsFiles = importAll(require.context('../../posts', false, /\.md$/))
 
-const PostThumbnail = ({title, summary, slug}) => (
-    <section className='post-thumbnail'>
+const PostThumbnail = ({title, summary, slug, thumbnailImage }) => {
+    const image = lazy(() => import('../../posts' + thumnailImage))
+
+    return <section className='post-thumbnail'>
         <Link to={`/blog/${slug}`}>
             <h1>{title}</h1>
         </Link>
+        <img src={thumbnailImage}/>
         <p>{summary}</p>
     </section>
-)
+}
 
 const PostsList = () => {
     const [postsMetadata, setPostsMetadata] = useState(undefined)
@@ -20,7 +26,8 @@ const PostsList = () => {
     const fetchPosts = async () => {
         try {
             const posts = await Promise.all(postsFiles.map(file => fetch(file).then(res => res.text())))
-            const postsMetadata = posts.map(post => fm(post))
+            const postsMetadata = posts.map(post => fm(post)).map(post => post.attributes)
+                .sort((a,b) => dayjs(b.date, 'DD/MM/YYYY').diff(dayjs(a.date, 'DD/MM/YYYY')))
             setPostsMetadata(postsMetadata)
         } catch (error) {
             console.log(error)
@@ -32,7 +39,7 @@ const PostsList = () => {
     }, [])
 
     return <div className='content-container'>
-            {postsMetadata && postsMetadata.map(post => <PostThumbnail {...post.attributes} />)}
+            {postsMetadata && postsMetadata.map(post => <PostThumbnail key={post.date} {...post} />)}
         </div>
 }
 
