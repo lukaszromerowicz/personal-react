@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy } from 'react'
+import React, { useState, useEffect, lazy, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import fm from 'front-matter'
 import dayjs from 'dayjs'
@@ -36,8 +36,10 @@ const PostsList = () => {
         }
     }
 
+    const memoizedFetchPosts = useCallback(() => fetchPosts(), [])
+
     useEffect(() => {
-        fetchPosts()
+        memoizedFetchPosts()
     }, [])
 
     return <div className='content-container'>

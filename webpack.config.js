@@ -5,7 +5,8 @@ const CompressionPlugin = require("compression-webpack-plugin")
 let config = {
   entry: ["babel-polyfill", "./src/index.js"],
   output: {
-    publicPath: "/"
+    publicPath: "/",
+    filename: '[name].[contenthash].js'
   },
   module: {
     rules: [
@@ -44,7 +45,7 @@ let config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "[name].[contenthash].css",
       chunkFilename: "[id].css"
 		}),
 		new HtmlWebpackPlugin({
