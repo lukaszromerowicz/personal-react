@@ -8,12 +8,13 @@ import { importAll, parseFrontmatter } from '../../util'
 dayjs.extend(customParseFormat)
 const postsFiles = importAll(require.context('../../posts', false, /\.md$/))
 
-const PostThumbnail = ({ title, summary, slug, thumbnailImage }) => {
+const PostThumbnail = ({ title, summary, slug, date, thumbnailImage }) => {
 
     return <section className='post-thumbnail'>
         <Link to={`/blog/${slug}`}>
             <h1>{title}</h1>
         </Link>
+        <p>{date}</p>
         {thumbnailImage && <img src={thumbnailImage} />}
         <p>{summary}</p>
     </section>
