@@ -1,11 +1,11 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const CompressionPlugin = require("compression-webpack-plugin")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 let config = {
-  entry: ["babel-polyfill", "./src/index.js"],
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
-    publicPath: "/",
+    publicPath: '/',
     filename: '[name].[contenthash].js'
   },
   module: {
@@ -13,7 +13,7 @@ let config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: ['babel-loader']
       },
       {
 				test: /\.scss$/,
@@ -22,8 +22,8 @@ let config = {
 					{
 						loader: MiniCssExtractPlugin.loader
 					},
-					"css-loader",
-					"sass-loader"
+					'css-loader',
+					'sass-loader'
 				]
       },
       {
@@ -45,45 +45,44 @@ let config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
-      chunkFilename: "[id].css"
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].css'
 		}),
 		new HtmlWebpackPlugin({
-			template: "./src/index.html"
-		})
+			template: './src/index.html'
+    }),
+    new CopyPlugin([
+      { from: 'src/posts/images/', to: 'assets' },
+    ],
+      {
+        ignore: [
+          '.DS_Store'
+        ]
+      })
   ]
 }
 
 module.exports = (env, argv) => {
-  if (argv.mode === "development") {
-    config.devtool = "source-map"
+  if (argv.mode === 'development') {
+    config.devtool = 'source-map'
     config.devServer = {
       inline: true,
       historyApiFallback: true
     }
   }
-  if (argv.mode === "production") {
+  if (argv.mode === 'production') {
     config.optimization = {
 			runtimeChunk: false,
       splitChunks: {
         cacheGroups: {
           commons: {
             test: /[\\/]node_modules[\\/]/,
-            name: "vendor",
-            chunks: "all"
+            name: 'vendor',
+            chunks: 'initial'
           }
         }
       }
 		}
-		config.plugins.push(
-			new CompressionPlugin({
-				asset: "[path].gz[query]",
-				algorithm: "gzip",
-				test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
-				threshold: 10240,
-				minRatio: 0.8
-			})
-		)
   }
 
   return config
