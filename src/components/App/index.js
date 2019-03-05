@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import { Link } from 'react-router-dom'
-import Background from '../Background'
 import MediaQuery from 'react-responsive'
 import menuIcon from '../../style/hamburger.svg'
 import Blog from '../Blog'
@@ -35,8 +34,7 @@ const Ul = posed.ul({
 
 const App = ({ showBlog }) => {
   return (
-    <main>
-      <Background />
+    <Fragment>
       <HeaderContainer className='header-container' pose={showBlog ? 'blog' : 'navigation'}>
         <div className='heading-container'>
           <MediaQuery query="only screen and (max-width: 767px)">
@@ -67,7 +65,7 @@ const App = ({ showBlog }) => {
         </nav>
       </HeaderContainer>
       {showBlog && <Blog />}
-    </main>
+    </Fragment>
   )
 }
 
