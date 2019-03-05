@@ -1,11 +1,11 @@
 const parseFrontmatter = text => {
-	const match = text.match(/(?<=---)((\n|.)*)(?=---)/)
+	const match = text.match(/(---)((\n|.)*)(?=---)/)
 
 	if (match === null) {
 		throw new Error('No front matter found.')
 	}
 
-	const foundLines = match[0].split(/\r\n|\n/).filter(e => e !== '')
+	const foundLines = match[0].replace('---', '').split(/\r\n|\n/).filter(e => e !== '')
 	const parsed = Object.assign({}, ...foundLines.map(line => extractProp(line)))
 	return parsed
 }
