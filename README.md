@@ -1,6 +1,6 @@
 # personal-react
 
-My digital business card rewrote in React to add some fancy mouse event handler.
+My digital business card and blog created in React.
 
 Visit it online at https://lukaszromerowicz.com/
 
@@ -14,4 +14,4 @@ npm install
 ```
 npm run dev
 ```
-4. Go to `localhost:8080` and voila!
+4. Go to `localhost:8080`
