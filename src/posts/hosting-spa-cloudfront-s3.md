@@ -10,7 +10,7 @@ Single Page Applications are often just static files. In which case hosting them
 
 Amazon Web Services is one of the most popular cloud hosting providers offering a variety of services. In this post I will show you how to use two of them: **CloudFront** and **S3** in order to host and serve a Single Page Application. 
 
-We will use an S3 bucket as a storage for our bundled application and a CloudFront distribution as a CDN (Content Delivery Network) to serve them.
+We will use an S3 bucket as a storage for our bundled application and a CloudFront distribution as a CDN (Content Delivery Network) to serve it.
 
 ## Prerequisites
 Before we can begin we need:
@@ -19,7 +19,7 @@ Before we can begin we need:
 2. Bundle of application to be hosted
 
 ## Creating an S3 bucket
-Let's start by creating an S3 bucket. We will keep it private, so that our files will not be accessible directly. Instead they will be served by our CloudFront distribution. 
+Let's start by creating an S3 bucket. We will keep it private, so that our files will not be accessible directly.
 
 1. After logging in to your AWS account head into the S3 section - press `Services` in the top navigation bar, enter `S3` and click on the first result: `S3 Scalable Storage in the Cloud`. 
 
@@ -45,7 +45,7 @@ Let's start by creating an S3 bucket. We will keep it private, so that our files
 We now have our app in our newly bucket. Great! 
 
 ## Creating CloudFront distribution
-We will now create a CloudFront distribution for our app. It wil be responsible for accessing the files for our app from the S3 bucket and serving them to the client. 
+We will now create a CloudFront distribution for our app. It wil be responsible for accessing our app files from the S3 bucket and serving them to the user. 
 
 CloudFront employs caching. It means it will not actually have to reach out to our bucket on every user requests. Instead it will do so only when we tell instruct it that our files have changed or it's cache expires. Default cache time for CloudFront is 24 hours. Thanks to that we can achieve improved load times.
 Moreover, by default CloudFront is protected by AWS from e.g. DDoS attacks. Less worry for us. 
