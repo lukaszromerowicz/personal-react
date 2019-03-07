@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import { Link } from 'react-router-dom'
 import MediaQuery from 'react-responsive'
-import menuIcon from '../../style/hamburger.svg'
+import menuIcon from '../../style/assets/hamburger.svg'
 import Blog from '../Blog'
 
 const Header = posed.header({

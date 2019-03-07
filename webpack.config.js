@@ -53,6 +53,7 @@ let config = {
     }),
     new CopyPlugin([
       { from: 'src/posts/images/', to: 'assets' },
+      { from: 'src/style/assets/', to: 'assets'}
     ],
       {
         ignore: [
